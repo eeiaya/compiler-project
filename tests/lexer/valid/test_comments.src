@@ -1,0 +1,4 @@
+int x; // comment
+/* block
+comment */
+return x;

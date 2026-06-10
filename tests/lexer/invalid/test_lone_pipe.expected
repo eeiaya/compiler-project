@@ -1,0 +1,5 @@
+1:1 IDENTIFIER "x"
+1:5 IDENTIFIER "y"
+1:6 SEMICOLON ";"
+2:1 END_OF_FILE ""
+ERROR 1:3 Invalid character '|'

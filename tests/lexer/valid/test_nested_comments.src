@@ -1,0 +1,1 @@
+int /* outer /* inner */ still outer */ x;

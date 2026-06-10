@@ -1,0 +1,5 @@
+1:1 IDENTIFIER "value"
+1:7 ASSIGN "="
+1:17 SEMICOLON ";"
+2:1 END_OF_FILE ""
+ERROR 1:9 Malformed number literal '12.34.56'
