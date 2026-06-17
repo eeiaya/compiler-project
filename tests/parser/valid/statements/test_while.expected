@@ -1,0 +1,10 @@
+Program [line 1]:
+  FunctionDecl: f -> void [line 1]:
+    Parameters: []
+    Body:
+      Block [line 1]:
+        While [line 1]:
+          Condition: (n > 0)
+          Body:
+            Block [line 1]:
+              ExprStmt: (n = (n - 1)) [line 1]

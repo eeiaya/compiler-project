@@ -1,0 +1,13 @@
+Program [line 1]:
+  FunctionDecl: f -> void [line 1]:
+    Parameters: []
+    Body:
+      Block [line 1]:
+        For [line 1]:
+          Init:
+            VarDecl: int i = 0 [line 1]
+          Condition: (i < 10)
+          Update: (i = (i + 1))
+          Body:
+            Block [line 1]:
+              ExprStmt: (x = i) [line 1]

@@ -1,0 +1,8 @@
+Program [line 1]:
+  FunctionDecl: f -> void [line 1]:
+    Parameters: []
+    Body:
+      Block [line 1]:
+        (empty)
+[line 1:16] Parse error: Expected ')' after if condition
+[line 1:27] Parse error: Expected declaration, got '}'

@@ -1,0 +1,2 @@
+Program [line 1]:
+  VarDecl: int counter = 0 [line 1]

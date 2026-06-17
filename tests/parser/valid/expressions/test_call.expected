@@ -1,0 +1,6 @@
+Program [line 1]:
+  FunctionDecl: f -> void [line 1]:
+    Parameters: []
+    Body:
+      Block [line 1]:
+        ExprStmt: foo(1, 2, 3) [line 1]

@@ -1,0 +1,4 @@
+Program [line 1]:
+  StructDecl: Point [line 1]:
+    VarDecl: int x [line 1]
+    VarDecl: int y [line 1]

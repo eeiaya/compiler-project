@@ -1,0 +1,13 @@
+Program [line 1]:
+  FunctionDecl: f -> void [line 1]:
+    Parameters: []
+    Body:
+      Block [line 1]:
+        If [line 1]:
+          Condition: (x > 0)
+          Then:
+            Block [line 1]:
+              ExprStmt: (y = 1) [line 1]
+          Else:
+            Block [line 1]:
+              ExprStmt: (y = 2) [line 1]

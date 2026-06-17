@@ -1,0 +1,14 @@
+Program [line 1]:
+  FunctionDecl: main -> void [line 1]:
+    Parameters: []
+    Body:
+      Block [line 1]:
+        VarDecl: int n = 5 [line 2]
+        VarDecl: int result = 1 [line 3]
+        While [line 4]:
+          Condition: (n > 0)
+          Body:
+            Block [line 4]:
+              ExprStmt: (result = (result * n)) [line 5]
+              ExprStmt: (n = (n - 1)) [line 6]
+        Return [line 8]

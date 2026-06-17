@@ -1,0 +1,73 @@
+(* MiniCompiler grammar — EBNF notation *)
+
+Program        = { Declaration } ;
+
+Declaration    = FunctionDecl
+               | StructDecl
+               | VarDecl ;
+
+FunctionDecl   = "fn" , Identifier , "(" , [ Parameters ] , ")" ,
+                 [ "->" , Type ] , Block ;
+
+StructDecl     = "struct" , Identifier , "{" , { VarDecl } , "}" ;
+
+VarDecl        = Type , Identifier , [ "=" , Expression ] , ";" ;
+
+Parameters     = Parameter , { "," , Parameter } ;
+Parameter      = Type , Identifier ;
+
+Statement      = Block
+               | IfStmt
+               | WhileStmt
+               | ForStmt
+               | ReturnStmt
+               | VarDecl
+               | ExprStmt
+               | ";" ;
+
+Block          = "{" , { Statement } , "}" ;
+IfStmt         = "if" , "(" , Expression , ")" , Statement ,
+                 [ "else" , Statement ] ;
+WhileStmt      = "while" , "(" , Expression , ")" , Statement ;
+ForStmt        = "for" , "(" , ( VarDecl | ExprStmt | ";" ) ,
+                 [ Expression ] , ";" , [ Expression ] , ")" , Statement ;
+ReturnStmt     = "return" , [ Expression ] , ";" ;
+ExprStmt       = Expression , ";" ;
+
+(* Expressions, from lowest to highest precedence *)
+
+Expression     = Assignment ;
+Assignment     = LogicalOr , [ AssignOp , Assignment ] ;
+AssignOp       = "=" | "+=" | "-=" | "*=" | "/=" | "%=" ;
+
+LogicalOr      = LogicalAnd , { "||" , LogicalAnd } ;
+LogicalAnd     = Equality   , { "&&" , Equality   } ;
+Equality       = Relational , { ( "==" | "!=" ) , Relational } ;
+Relational     = Additive   , { ( "<" | "<=" | ">" | ">=" ) , Additive } ;
+Additive       = Multiplicative , { ( "+" | "-" ) , Multiplicative } ;
+Multiplicative = Unary , { ( "*" | "/" | "%" ) , Unary } ;
+Unary          = [ "-" | "!" ] , Call ;
+Call           = Primary , { "(" , [ Arguments ] , ")" } ;
+Arguments      = Expression , { "," , Expression } ;
+Primary        = Literal
+               | Identifier
+               | "(" , Expression , ")" ;
+
+Type           = "int" | "float" | "bool" | "void" | Identifier ;
+Literal        = IntegerLiteral
+               | FloatLiteral
+               | StringLiteral
+               | "true"
+               | "false" ;
+
+(* Precedence (highest to lowest):
+   1. Primary, Call
+   2. Unary       (right-associative)
+   3. Multiplicative (left)
+   4. Additive    (left)
+   5. Relational  (non-associative)
+   6. Equality    (non-associative)
+   7. LogicalAnd  (left)
+   8. LogicalOr   (left)
+   9. Assignment  (right)
+*)

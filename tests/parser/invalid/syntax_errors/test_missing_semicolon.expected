@@ -1,0 +1,7 @@
+Program [line 1]:
+  FunctionDecl: f -> void [line 1]:
+    Parameters: []
+    Body:
+      Block [line 1]:
+        (empty)
+[line 1:20] Parse error: Expected ';' after variable declaration
